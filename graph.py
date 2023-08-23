@@ -14,7 +14,8 @@ class Graph:
                              'name': 'Coding Tracker',
                              'unit': 'Hour',
                              'type': 'float',
-                             'color': 'ajisai'
+                             'color': 'ajisai',
+                             'timezone': 'America/Los_Angeles'
                              }
 
     def create_graph(self):
@@ -23,3 +24,10 @@ class Graph:
         """
         graph_response = requests.post(url=self.graph_endpoint, json=self.graph_params, headers=self.header)
         print(graph_response.text)
+
+    def update_graph(self):
+        update_graph_endpoint = f"{self.graph_endpoint}/{GRAPH_ID}"
+        updated_graph = requests.put(url=update_graph_endpoint, json=self.graph_params, headers=self.header)
+        print(updated_graph.text)
+
+

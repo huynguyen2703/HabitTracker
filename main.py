@@ -12,8 +12,7 @@ WORD_COLOR = '#FFD700'
 initial_hour = '0'
 
 # Get the current date and time in UTC
-today = datetime.now().utcnow()
-print(today.strftime('%Y%m%d'))
+today = datetime.now()
 
 # Create instances of Registration, Graph
 account = Registration()
