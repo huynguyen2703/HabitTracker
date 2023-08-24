@@ -1,0 +1,3 @@
+([('main',
+   '/Users/nguyenquoctoan/PycharmProjects/HabitTracker/dist/main',
+   'EXECUTABLE')],)
