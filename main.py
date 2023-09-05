@@ -32,11 +32,23 @@ def call_add():
     """
     play_sound('/Users/nguyenquoctoan/PycharmProjects/PasswordGenerator/button.wav')
     if user_entry.get() != '':
-        the_pixel = Pixel(today, user_entry.get())
+        if date.get() == "" or date.get() == 'YYYYmmdd':
+            the_pixel = Pixel(today, user_entry.get())
+        else:
+            date_str = date.get()
+            try:
+                date_obj = datetime.strptime(date_str, '%Y%m%d')
+            except ValueError:
+                print("Invalid date format. Please enter a date in 'yyyymmdd' format.")
+                return
+            the_pixel = Pixel(date_obj, user_entry.get())
     else:
         the_pixel = Pixel(today, initial_hour)
     the_pixel.create_pixel()
-    label_text.config(text=f'Today You Have Coded For {user_entry.get()} Hours')
+    if date.get() == today.strftime('%Y%m%d'):
+        label_text.config(text=f'Today You Have Coded For {user_entry.get()} Hours')
+    else:
+        label_text.config(text=f'You Have Coded For {user_entry.get()} Hours')
 
 
 def call_delete():
@@ -59,6 +71,8 @@ def call_delete():
 
     if date.get() == today.strftime('%Y%m%d'):
         label_text.config(text=f'Today You Have Coded For 0 Hours')
+    else:
+        label_text.config(text=f'You Have Coded For 0 Hours')
 
 
 def call_update():
@@ -82,6 +96,8 @@ def call_update():
 
     if date.get() == today.strftime('%Y%m%d'):
         label_text.config(text=f'Today You Have Coded For {user_entry.get()} Hours')
+    else:
+        label_text.config(text=f'You Have Coded For {user_entry.get()} Hours')
 
 
 def play_sound(filename):
