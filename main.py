@@ -129,7 +129,7 @@ def play_sound(filename):
 
 # Create the main Tkinter window
 window = Tk()
-window.title("Coding Tracker")  # Set the window title
+window.title("GOAL-ZEN")  # Set the window title
 window.config(padx=40, pady=40, bg=BG)  # Configure padding and background color
 
 # Create a ttk Style object for custom styling of Tkinter widgets
